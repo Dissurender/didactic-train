@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, reactive, computed, watch } from 'vue';
 import BaseCard from './BaseCard.vue';
 import DocumentationIcon from './icons/IconDocumentation.vue';
+
+const data = reactive([]);
+
+const firstName = ref('');
+const lastName = ref('');
+const city = ref('');
 
 const test = ref('Test Text');
 </script>
@@ -20,14 +26,7 @@ const test = ref('Test Text');
     perferendis? Dolorum, distinctio ullam. Aut, tempore iusto!
   </BaseCard>
 
-  <BaseCard>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
-
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </BaseCard>
+  <input v-model="firstName" placeholder="First Name" />
+  <input v-model="lastName" placeholder="Last Name" />
+  <input v-model="city" placeholder="City" />
 </template>
